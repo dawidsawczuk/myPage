@@ -14,9 +14,82 @@ $(document).ready(function () {
 
         $content = $($active[0].hash);
 
+        var $dataNameR = '#' + $active.data('namer');
+        var $contentR = $($dataNameR);
+        var $divsR = $('.col-right-side').find('div');
+
+        $divsR.not($dataNameR).each(function () {
+            $(this).hide();
+        });
+
         // Hide the remaining content
         $links.not($active).each(function () {
             $(this.hash).hide();
+        });
+
+        var $leftDivId = '#' + $active.data('name');
+        var $leftDivPs = $($leftDivId).find('p');
+        var $infoContent = $('.content').find('div');
+        var $activeP = $leftDivPs.first();
+        var $dataContent = '#' + $activeP.data('content');
+        var $contentP = $($dataContent);
+
+        $activeP.toggleClass('blue');
+        $activeP.toggleClass('activeP');
+
+        $infoContent.not($dataContent).each(function () {
+            $(this).hide();
+        });
+
+        $leftDivPs.each(function () {
+            $(this).on('click', function () {
+                $activeP.toggleClass('activeP');
+                $activeP.toggleClass('blue');
+                $contentP.hide();
+
+                $activeP = $(this);
+                $dataContent = '#' + $activeP.data('content');
+                $contentP = $($dataContent);
+
+                $activeP.toggleClass('activeP');
+                $activeP.toggleClass('blue');
+                $contentP.show();
+            });
+        });
+
+        $(window).unbind().on("keydown", function (e) {
+
+            if ($activeP.index() !== ($leftDivPs.length - 1)) {
+                if (e.keyCode == 40) { //down
+                    $activeP.toggleClass('activeP');
+                    $activeP.toggleClass('blue');
+                    $contentP.hide();
+
+                    $activeP = $activeP.next();
+                    $dataContent = '#' + $activeP.data('content');
+                    $contentP = $($dataContent);
+
+                    $activeP.toggleClass('activeP');
+                    $activeP.toggleClass('blue');
+                    $contentP.show();
+                }
+            }
+
+            if ($activeP.index() !== 0) {
+                if (e.keyCode == 38) { //up
+                    $activeP.toggleClass('activeP');
+                    $activeP.toggleClass('blue');
+                    $contentP.hide();
+
+                    $activeP = $activeP.prev();
+                    $dataContent = '#' + $activeP.data('content');
+                    $contentP = $($dataContent);
+
+                    $activeP.toggleClass('activeP');
+                    $activeP.toggleClass('blue');
+                    $contentP.show();
+                }
+            }
         });
 
         // Bind the click event handler
@@ -25,18 +98,48 @@ $(document).ready(function () {
             $active.parent().removeClass('active');
             $active.toggleClass('grey');
             $active.toggleClass('blue');
+            $activeP.toggleClass('blue');
+            $activeP.toggleClass('activeP');
             $content.hide();
-            console.log($(this));
+            $contentR.hide();
+            $contentP.hide();
 
             // Update the variables with the new link and content
             $active = $(this);
+            $dataNameR = '#' + $active.data('namer');
+            $leftDivId = '#' + $active.data('name');
+            $leftDivPs = $($leftDivId).find('p');
             $content = $(this.hash);
+            $contentR = $($dataNameR);
+            $activeP = $leftDivPs.first();
+            $dataContent = '#' + $activeP.data('content');
+            $contentP = $($dataContent);
 
             // Make the tab active.
             $active.parent().addClass('active');
             $active.toggleClass('grey');
             $active.toggleClass('blue');
+            $activeP.toggleClass('blue');
+            $activeP.toggleClass('activeP');
             $content.show();
+            $contentR.show();
+            $contentP.show();
+
+            $leftDivPs.each(function () {
+                $(this).on('click', function () {
+                    $activeP.toggleClass('activeP');
+                    $activeP.toggleClass('blue');
+                    $contentP.hide();
+
+                    $activeP = $(this);
+                    $dataContent = '#' + $activeP.data('content');
+                    $contentP = $($dataContent);
+
+                    $activeP.toggleClass('activeP');
+                    $activeP.toggleClass('blue');
+                    $contentP.show();
+                });
+            });
 
             // Prevent the anchor's default click action
             e.preventDefault();
@@ -46,40 +149,103 @@ $(document).ready(function () {
             if ($active.data('id') !== 4) {
                 if (e.keyCode == 39) {
                     var $next = $active.parent().next().find('a');
-                    var $dataName = '#' + $next.data('name');
+                    var $nextDataName = '#' + $next.data('name');
 
                     $active.parent().removeClass('active');
                     $active.toggleClass('grey');
                     $active.toggleClass('blue');
+                    $activeP.toggleClass('blue');
+                    $activeP.toggleClass('activeP');
                     $content.hide();
+                    $contentR.hide();
+                    $contentP.hide();
 
                     $active = $active.parent().next().find('a');
-                    $content = $($dataName);
+                    $leftDivPs = $($leftDivId).next().find('p');
+                    $activeP = $leftDivPs.first();
+                    $dataNameR = '#' + $active.data('namer');
+                    $dataContent = '#' + $activeP.data('content');
+                    $leftDivId = '#' + $active.data('name');
+                    $content = $($nextDataName);
+                    $contentR = $($dataNameR);
+                    $contentP = $($dataContent);
 
                     $active.parent().addClass('active');
                     $active.toggleClass('grey');
                     $active.toggleClass('blue');
+                    $activeP.toggleClass('blue');
+                    $activeP.toggleClass('activeP');
                     $content.show();
+                    $contentR.show();
+                    $contentP.show();
+
+                    $leftDivPs.each(function () {
+                        $(this).on('click', function () {
+                            $activeP.toggleClass('activeP');
+                            $activeP.toggleClass('blue');
+                            $contentP.hide();
+
+                            $activeP = $(this);
+                            $dataContent = '#' + $activeP.data('content');
+                            $contentP = $($dataContent);
+
+                            $activeP.toggleClass('activeP');
+                            $activeP.toggleClass('blue');
+                            $contentP.show();
+                        });
+                    });
+
                 }
             }
 
             if ($active.data('id') !== 0) {
                 if (e.keyCode == 37) {
                     var $prev = $active.parent().prev().find('a');
-                    var $dataName = '#' + $prev.data('name');
+                    var $prevDataName = '#' + $prev.data('name');
 
                     $active.parent().removeClass('active');
                     $active.toggleClass('grey');
                     $active.toggleClass('blue');
+                    $activeP.toggleClass('blue');
+                    $activeP.toggleClass('activeP');
                     $content.hide();
+                    $contentR.hide();
+                    $contentP.hide();
 
                     $active = $active.parent().prev().find('a');
-                    $content = $($dataName);
+                    $leftDivPs = $($leftDivId).prev().find('p');
+                    $activeP = $leftDivPs.first();
+                    $dataNameR = '#' + $active.data('namer');
+                    $dataContent = '#' + $activeP.data('content');
+                    $leftDivId = '#' + $active.data('name');
+                    $content = $($prevDataName);
+                    $contentR = $($dataNameR);
+                    $contentP = $($dataContent);
 
                     $active.parent().addClass('active');
                     $active.toggleClass('grey');
                     $active.toggleClass('blue');
+                    $activeP.toggleClass('blue');
+                    $activeP.toggleClass('activeP');
                     $content.show();
+                    $contentR.show();
+                    $contentP.show();
+
+                    $leftDivPs.each(function () {
+                        $(this).on('click', function () {
+                            $activeP.toggleClass('activeP');
+                            $activeP.toggleClass('blue');
+                            $contentP.hide();
+
+                            $activeP = $(this);
+                            $dataContent = '#' + $activeP.data('content');
+                            $contentP = $($dataContent);
+
+                            $activeP.toggleClass('activeP');
+                            $activeP.toggleClass('blue');
+                            $contentP.show();
+                        });
+                    });
                 }
             }
 
