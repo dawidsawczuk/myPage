@@ -23,7 +23,6 @@ nav ul {
     justify-content: flex-start;
     flex-grow: 1;
     background-color: blue;
-
 }
 
 nav ul li {
@@ -45,7 +44,6 @@ a {
     text-align: center;
     font-size: 25px;
     padding: 0.5%;
-
 }
 
 .main {
@@ -63,7 +61,6 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .col-left {
@@ -77,7 +74,6 @@ a {
 .col-left p {
     font-size: 20px;
     line-height: 150%;
-
 }
 
 .margin {
@@ -136,17 +132,16 @@ span {
 .icon {
     color: white;
     font-size: 20px;
-
 }
 
 .arrows {
     color: white;
     font-size: 25px;
     font-weight: bold;
-
 }
 
 .copyright {
+    margin-left: 9%;
     color: black;
 }
 
@@ -171,18 +166,15 @@ img {
         display: block;
         padding-top: 50%;
     }
-
     img {
         display: block;
         width: 150px;
         height: 150px;
         color: white;
     }
-
     .col-left {
         display: none;
     }
-
     .col-right {
         display: none;
     }
@@ -192,21 +184,44 @@ img {
     .top-text {
         font-size: 18px;
     }
-
     .col-left-side {
         margin: 3%;
         width: 46%;
     }
-
     .col-right-side {
         margin: 3%;
         width: 60%;
     }
-
     .col-left p {
         font-size: 16px;
     }
-
+    .footer {
+        display: flex;
+        position: relative;
+        height: 50px;
+    }
+    span {
+        color: black;
+        font-size: 15px;
+        font-weight: normal;
+    }
+    .icon {
+        color: white;
+        font-size: 18px;
+    }
+    .arrows {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .copyright {
+        margin: 0;
+        font-size: 14px;
+        color: black;
+        position: absolute;
+        top: 60%;
+        left: 28%;
+    }
 }
 
 .copyright a {
