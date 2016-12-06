@@ -17,6 +17,7 @@ $(document).ready(function () {
         var $dataNameR = '#' + $active.data('namer');
         var $contentR = $($dataNameR);
         var $divsR = $('.col-right-side').find('div');
+        var $psR = $contentR.find('p');
 
         $divsR.not($dataNameR).each(function () {
             $(this).hide();
@@ -33,9 +34,14 @@ $(document).ready(function () {
         var $activeP = $leftDivPs.first();
         var $dataContent = '#' + $activeP.data('content');
         var $contentP = $($dataContent);
+        var $activeR = $psR.first();
+        console.log($activeR);
 
         $activeP.toggleClass('blue');
         $activeP.toggleClass('activeP');
+
+        $activeR.toggleClass('black');
+        $activeR.toggleClass('selection');
 
         $infoContent.not($dataContent).each(function () {
             $(this).hide();
@@ -45,14 +51,19 @@ $(document).ready(function () {
             $(this).on('click', function () {
                 $activeP.toggleClass('activeP');
                 $activeP.toggleClass('blue');
+                $activeR.toggleClass('black');
+                $activeR.toggleClass('selection');
                 $contentP.hide();
 
                 $activeP = $(this);
+                $activeR = $psR.eq($activeP.index());
                 $dataContent = '#' + $activeP.data('content');
                 $contentP = $($dataContent);
 
                 $activeP.toggleClass('activeP');
                 $activeP.toggleClass('blue');
+                $activeR.toggleClass('black');
+                $activeR.toggleClass('selection');
                 $contentP.show();
             });
         });
@@ -63,14 +74,19 @@ $(document).ready(function () {
                 if (e.keyCode == 40) { //down
                     $activeP.toggleClass('activeP');
                     $activeP.toggleClass('blue');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $contentP.hide();
 
                     $activeP = $activeP.next();
+                    $activeR = $psR.eq($activeP.index());
                     $dataContent = '#' + $activeP.data('content');
                     $contentP = $($dataContent);
 
                     $activeP.toggleClass('activeP');
                     $activeP.toggleClass('blue');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $contentP.show();
                 }
             }
@@ -79,14 +95,19 @@ $(document).ready(function () {
                 if (e.keyCode == 38) { //up
                     $activeP.toggleClass('activeP');
                     $activeP.toggleClass('blue');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $contentP.hide();
 
                     $activeP = $activeP.prev();
+                    $activeR = $psR.eq($activeP.index());
                     $dataContent = '#' + $activeP.data('content');
                     $contentP = $($dataContent);
 
                     $activeP.toggleClass('activeP');
                     $activeP.toggleClass('blue');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $contentP.show();
                 }
             }
@@ -100,6 +121,8 @@ $(document).ready(function () {
             $active.toggleClass('blue');
             $activeP.toggleClass('blue');
             $activeP.toggleClass('activeP');
+            $activeR.toggleClass('black');
+            $activeR.toggleClass('selection');
             $content.hide();
             $contentR.hide();
             $contentP.hide();
@@ -114,6 +137,8 @@ $(document).ready(function () {
             $activeP = $leftDivPs.first();
             $dataContent = '#' + $activeP.data('content');
             $contentP = $($dataContent);
+            $psR = $contentR.find('p');
+            $activeR = $psR.first();
 
             // Make the tab active.
             $active.parent().addClass('active');
@@ -121,6 +146,8 @@ $(document).ready(function () {
             $active.toggleClass('blue');
             $activeP.toggleClass('blue');
             $activeP.toggleClass('activeP');
+            $activeR.toggleClass('black');
+            $activeR.toggleClass('selection');
             $content.show();
             $contentR.show();
             $contentP.show();
@@ -129,14 +156,19 @@ $(document).ready(function () {
                 $(this).on('click', function () {
                     $activeP.toggleClass('activeP');
                     $activeP.toggleClass('blue');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $contentP.hide();
 
                     $activeP = $(this);
+                    $activeR = $psR.eq($activeP.index());
                     $dataContent = '#' + $activeP.data('content');
                     $contentP = $($dataContent);
 
                     $activeP.toggleClass('activeP');
                     $activeP.toggleClass('blue');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $contentP.show();
                 });
             });
@@ -156,6 +188,8 @@ $(document).ready(function () {
                     $active.toggleClass('blue');
                     $activeP.toggleClass('blue');
                     $activeP.toggleClass('activeP');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $content.hide();
                     $contentR.hide();
                     $contentP.hide();
@@ -169,12 +203,16 @@ $(document).ready(function () {
                     $content = $($nextDataName);
                     $contentR = $($dataNameR);
                     $contentP = $($dataContent);
+                    $psR = $contentR.find('p');
+                    $activeR = $psR.first();
 
                     $active.parent().addClass('active');
                     $active.toggleClass('grey');
                     $active.toggleClass('blue');
                     $activeP.toggleClass('blue');
                     $activeP.toggleClass('activeP');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $content.show();
                     $contentR.show();
                     $contentP.show();
@@ -183,14 +221,19 @@ $(document).ready(function () {
                         $(this).on('click', function () {
                             $activeP.toggleClass('activeP');
                             $activeP.toggleClass('blue');
+                            $activeR.toggleClass('black');
+                            $activeR.toggleClass('selection');
                             $contentP.hide();
 
                             $activeP = $(this);
+                            $activeR = $psR.eq($activeP.index());
                             $dataContent = '#' + $activeP.data('content');
                             $contentP = $($dataContent);
 
                             $activeP.toggleClass('activeP');
                             $activeP.toggleClass('blue');
+                            $activeR.toggleClass('black');
+                            $activeR.toggleClass('selection');
                             $contentP.show();
                         });
                     });
@@ -208,6 +251,8 @@ $(document).ready(function () {
                     $active.toggleClass('blue');
                     $activeP.toggleClass('blue');
                     $activeP.toggleClass('activeP');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $content.hide();
                     $contentR.hide();
                     $contentP.hide();
@@ -221,12 +266,16 @@ $(document).ready(function () {
                     $content = $($prevDataName);
                     $contentR = $($dataNameR);
                     $contentP = $($dataContent);
+                    $psR = $contentR.find('p');
+                    $activeR = $psR.first();
 
                     $active.parent().addClass('active');
                     $active.toggleClass('grey');
                     $active.toggleClass('blue');
                     $activeP.toggleClass('blue');
                     $activeP.toggleClass('activeP');
+                    $activeR.toggleClass('black');
+                    $activeR.toggleClass('selection');
                     $content.show();
                     $contentR.show();
                     $contentP.show();
@@ -235,14 +284,19 @@ $(document).ready(function () {
                         $(this).on('click', function () {
                             $activeP.toggleClass('activeP');
                             $activeP.toggleClass('blue');
+                            $activeR.toggleClass('black');
+                            $activeR.toggleClass('selection');
                             $contentP.hide();
 
                             $activeP = $(this);
+                            $activeR = $psR.eq($activeP.index());
                             $dataContent = '#' + $activeP.data('content');
                             $contentP = $($dataContent);
 
                             $activeP.toggleClass('activeP');
                             $activeP.toggleClass('blue');
+                            $activeR.toggleClass('black');
+                            $activeR.toggleClass('selection');
                             $contentP.show();
                         });
                     });
@@ -251,6 +305,10 @@ $(document).ready(function () {
 
             if (e.keyCode == 27) {
                 window.location.replace("https://github.com/dawidsawczuk");
+            }
+
+            if (e.keyCode == 113) {
+                alert('Test');
             }
         });
     });

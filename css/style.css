@@ -223,4 +223,14 @@ span {
     color: white;
 }
 
+.black {
+    color: black;
+}
+
+.selection {
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
 
