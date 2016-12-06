@@ -1,12 +1,8 @@
 $(document).ready(function () {
 
     $('ul.mainSlider').each(function () {
-        // For each set of tabs, we want to keep track of
-        // which tab is active and its associated content
         var $active, $content, $links = $(this).find('a');
 
-        // If the location.hash matches one of the links, use that as the active tab.
-        // If no match is found, use the first link as the initial active tab.
         $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
         $active.parent().addClass('active');
         $active.toggleClass('grey');
@@ -23,7 +19,6 @@ $(document).ready(function () {
             $(this).hide();
         });
 
-        // Hide the remaining content
         $links.not($active).each(function () {
             $(this.hash).hide();
         });
@@ -35,7 +30,6 @@ $(document).ready(function () {
         var $dataContent = '#' + $activeP.data('content');
         var $contentP = $($dataContent);
         var $activeR = $psR.first();
-        console.log($activeR);
 
         $activeP.toggleClass('blue');
         $activeP.toggleClass('activeP');
@@ -69,6 +63,16 @@ $(document).ready(function () {
         });
 
         $(window).unbind().on("keydown", function (e) {
+
+            if ($activeR.children().is('a, a *')) {
+                if (e.keyCode == 13) {
+                    if ($activeR.index() == 1) {
+                        window.open("https://linkedin.com/in/dawid-sawczuk");
+                    } else {
+                        window.open("https://github.com/dawidsawczuk");
+                    }
+                }
+            }
 
             if ($activeP.index() !== ($leftDivPs.length - 1)) {
                 if (e.keyCode == 40) { //down
@@ -190,6 +194,7 @@ $(document).ready(function () {
                     $activeP.toggleClass('activeP');
                     $activeR.toggleClass('black');
                     $activeR.toggleClass('selection');
+
                     $content.hide();
                     $contentR.hide();
                     $contentP.hide();
@@ -308,7 +313,11 @@ $(document).ready(function () {
             }
 
             if (e.keyCode == 113) {
-                alert('Test');
+                    alert('Enter is usable only with [Link].\n' +
+                    'On desktop you can use both arrows and mouse.\n' +
+                    'Looks created by Alicja Cmiel.\n' +
+                    'Functionality by Dawid Sawczuk.\n' +
+                    'Enjoy!');
             }
         });
     });

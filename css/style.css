@@ -73,14 +73,15 @@ a {
     flex-direction: row;
     justify-content: space-between;
 }
+
 .col-left p {
-  font-size: 20px;
-  line-height: 150%;
+    font-size: 20px;
+    line-height: 150%;
 
 }
 
 .margin {
-  margin-bottom: 3.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .col-left-side {
@@ -148,59 +149,63 @@ span {
 .copyright {
     color: black;
 }
+
 .portrait {
-  display: none;
+    display: none;
 }
+
 img {
-  display: none;
+    display: none;
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
-  .portrait {
-      width: 100vw;
-      height: 100vh;
-      background: darkgrey;
-      font-size: 50px;
-      top:50px;
-      margin:0 auto;
-      text-align:center;
-      color: white;
-      display: block;
-      padding-top: 50%;
-      }
-      img {
+    .portrait {
+        width: 100vw;
+        height: 100vh;
+        background: darkgrey;
+        font-size: 50px;
+        top: 50px;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        display: block;
+        padding-top: 50%;
+    }
+
+    img {
         display: block;
         width: 150px;
         height: 150px;
         color: white;
-      }
+    }
 
+    .col-left {
+        display: none;
+    }
 
-.col-left {
-  display: none;
+    .col-right {
+        display: none;
+    }
 }
-.col-right {
-  display: none;
-}
-}
-
 
 @media only screen and (max-width: 768px) and (orientation: landscape) {
     .top-text {
         font-size: 18px;
     }
-    .col-left-side {
-    margin: 3%;
-    width: 46%;
-  }
-  .col-right-side {
-  margin: 3%;
-  width: 60%;
-}
-.col-left p {
-  font-size: 16px;
-}
 
+    .col-left-side {
+        margin: 3%;
+        width: 46%;
+    }
+
+    .col-right-side {
+        margin: 3%;
+        width: 60%;
+    }
+
+    .col-left p {
+        font-size: 16px;
+    }
 
 }
 
