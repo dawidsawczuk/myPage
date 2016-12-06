@@ -23,7 +23,6 @@ nav ul {
     justify-content: flex-start;
     flex-grow: 1;
     background-color: blue;
-
 }
 
 nav ul li {
@@ -45,7 +44,6 @@ a {
     text-align: center;
     font-size: 25px;
     padding: 0.5%;
-
 }
 
 .main {
@@ -63,7 +61,6 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .col-left {
@@ -73,14 +70,14 @@ a {
     flex-direction: row;
     justify-content: space-between;
 }
-.col-left p {
-  font-size: 20px;
-  line-height: 150%;
 
+.col-left p {
+    font-size: 20px;
+    line-height: 150%;
 }
 
 .margin {
-  margin-bottom: 3.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .col-left-side {
@@ -135,73 +132,96 @@ span {
 .icon {
     color: white;
     font-size: 20px;
-
 }
 
 .arrows {
     color: white;
     font-size: 25px;
     font-weight: bold;
-
 }
 
 .copyright {
+    margin-left: 9%;
     color: black;
 }
+
 .portrait {
-  display: none;
+    display: none;
 }
+
 img {
-  display: none;
+    display: none;
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
-  .portrait {
-      width: 100vw;
-      height: 100vh;
-      background: darkgrey;
-      font-size: 50px;
-      top:50px;
-      margin:0 auto;
-      text-align:center;
-      color: white;
-      display: block;
-      padding-top: 50%;
-      }
-      img {
+    .portrait {
+        width: 100vw;
+        height: 100vh;
+        background: darkgrey;
+        font-size: 50px;
+        top: 50px;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        display: block;
+        padding-top: 50%;
+    }
+    img {
         display: block;
         width: 150px;
         height: 150px;
         color: white;
-      }
-
-
-.col-left {
-  display: none;
+    }
+    .col-left {
+        display: none;
+    }
+    .col-right {
+        display: none;
+    }
 }
-.col-right {
-  display: none;
-}
-}
-
 
 @media only screen and (max-width: 768px) and (orientation: landscape) {
     .top-text {
         font-size: 18px;
     }
     .col-left-side {
-    margin: 3%;
-    width: 46%;
-  }
-  .col-right-side {
-  margin: 3%;
-  width: 60%;
-}
-.col-left p {
-  font-size: 16px;
-}
-
-
+        margin: 3%;
+        width: 46%;
+    }
+    .col-right-side {
+        margin: 3%;
+        width: 60%;
+    }
+    .col-left p {
+        font-size: 16px;
+    }
+    .footer {
+        display: flex;
+        position: relative;
+        height: 50px;
+    }
+    span {
+        color: black;
+        font-size: 15px;
+        font-weight: normal;
+    }
+    .icon {
+        color: white;
+        font-size: 18px;
+    }
+    .arrows {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .copyright {
+        margin: 0;
+        font-size: 14px;
+        color: black;
+        position: absolute;
+        top: 60%;
+        left: 28%;
+    }
 }
 
 .copyright a {
