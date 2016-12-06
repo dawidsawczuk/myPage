@@ -73,6 +73,15 @@ a {
     flex-direction: row;
     justify-content: space-between;
 }
+.col-left p {
+  font-size: 20px;
+  line-height: 150%;
+
+}
+
+.margin {
+  margin-bottom: 3.5rem;
+}
 
 .col-left-side {
     margin: 3%;
@@ -139,62 +148,60 @@ span {
 .copyright {
     color: black;
 }
+.portrait {
+  display: none;
+}
+img {
+  display: none;
+}
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
+  .portrait {
+      width: 100vw;
+      height: 100vh;
+      background: darkgrey;
+      font-size: 50px;
+      top:50px;
+      margin:0 auto;
+      text-align:center;
+      color: white;
+      display: block;
+      padding-top: 50%;
+      }
+      img {
+        display: block;
+        width: 150px;
+        height: 150px;
+        color: white;
+      }
 
-    .arrow {
-        position: relative;
-        padding: 80px;
-        width: 100px;
-        height: 100px;
-    }
 
-    .circle {
-        position: absolute;
-        box-sizing: border-box;
-        height: 100px;
-        width: 100px;
-        border: 5px solid #000;
-        border-radius: 50%;
-        -webkit-clip-path: inset(0 50% 0 0);
-    }
-
-    .triangle {
-        position: absolute;
-        width: 15px;
-        height: 10px;
-        background: #000;
-        margin-top: -1px;
-        margin-left: 44px;
-        -webkit-clip-path: polygon(50% 0, 0% 100%, 100% 100%);
-        -moz-transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-    }
-
-    .arrow {
-        animation: spin 4s linear infinite;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(360deg)
-        }
-        50% {
-            transform: rotate(180deg)
-        }
-        100% {
-            transform: rotate(0deg)
-        }
-    }
+.col-left {
+  display: none;
 }
+.col-right {
+  display: none;
+}
+}
+
 
 @media only screen and (max-width: 768px) and (orientation: landscape) {
     .top-text {
         font-size: 18px;
     }
+    .col-left-side {
+    margin: 3%;
+    width: 46%;
+  }
+  .col-right-side {
+  margin: 3%;
+  width: 60%;
+}
+.col-left p {
+  font-size: 16px;
+}
+
+
 }
 
 .copyright a {
@@ -232,5 +239,3 @@ span {
     background-color: black;
     display: inline-block;
 }
-
-
