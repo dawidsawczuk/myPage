@@ -259,3 +259,7 @@ img {
     background-color: black;
     display: inline-block;
 }
+
+.content p {
+    font-size: 18px;
+}

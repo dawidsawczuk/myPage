@@ -314,7 +314,7 @@ $(document).ready(function () {
 
             if (e.keyCode == 113) {
                     alert('Enter is usable only with [Link].\n' +
-                    'On desktop you can use both arrows and mouse.\n' +
+                    'On the desktop you can use both arrows and mouse.\n' +
                     'Looks created by Alicja Cmiel.\n' +
                     'Functionality by Dawid Sawczuk.\n' +
                     'Enjoy!');
