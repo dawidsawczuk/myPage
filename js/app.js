@@ -26,21 +26,35 @@ $(document).ready(function () {
         $contentP.hide();
     }
 
-
+    //Iterating over main menu
     $('ul.mainSlider').each(function () {
+        //Setting main menu variables
         var $active, $content, $links = $(this).find('a');
 
+        //Setting first menu item as active
         $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
         $active.parent().addClass('active');
-        toggleClassesOnActive($active);
-
         $content = $($active[0].hash);
 
+        toggleClassesOnActive($active);
+
+        //Setting variables for the rest of the content
         var $dataNameR = '#' + $active.data('namer');
         var $contentR = $($dataNameR);
-        var $divsR = $('.col-right-side').find('div');
         var $psR = $contentR.find('p');
+        var $activeR = $psR.first();
+        var $divsR = $('.col-right-side').find('div');
 
+        var $leftDivId = '#' + $active.data('name');
+        var $leftDivPs = $($leftDivId).find('p');
+        var $activeP = $leftDivPs.first();
+        var $dataContent = '#' + $activeP.data('content');
+        var $contentP = $($dataContent);
+        var $infoContent = $('.content').find('div');
+
+        toggleClassesOnPandR($activeP, $activeR);
+
+        //Hiding unnecessary content
         $divsR.not($dataNameR).each(function () {
             $(this).hide();
         });
@@ -49,20 +63,11 @@ $(document).ready(function () {
             $(this.hash).hide();
         });
 
-        var $leftDivId = '#' + $active.data('name');
-        var $leftDivPs = $($leftDivId).find('p');
-        var $infoContent = $('.content').find('div');
-        var $activeP = $leftDivPs.first();
-        var $dataContent = '#' + $activeP.data('content');
-        var $contentP = $($dataContent);
-        var $activeR = $psR.first();
-
-        toggleClassesOnPandR($activeP, $activeR);
-
         $infoContent.not($dataContent).each(function () {
             $(this).hide();
         });
 
+        //On click functionality on the first site
         $leftDivPs.each(function () {
             $(this).on('click', function () {
                 toggleClassesOnPandR($activeP, $activeR);
@@ -105,6 +110,7 @@ $(document).ready(function () {
             toggleClassesOnPandR($activeP, $activeR);
             showContents($content, $contentR, $contentP);
 
+            //Bind click functionality on the new chosen site
             $leftDivPs.each(function () {
                 $(this).on('click', function () {
                     toggleClassesOnPandR($activeP, $activeR);
@@ -124,6 +130,7 @@ $(document).ready(function () {
             e.preventDefault();
         });
 
+        //Bind enter, down and up, keys functionality
         $(window).unbind().on("keydown", function (e) {
 
             if ($activeR.children().is('a, a *')) {
@@ -167,6 +174,7 @@ $(document).ready(function () {
             }
         });
 
+        //Binding left and right keys functionality
         $(window).keydown(function (e) {
             if ($active.data('id') !== 4) {
                 if (e.keyCode == 39) {
@@ -195,6 +203,7 @@ $(document).ready(function () {
                     toggleClassesOnPandR($activeP, $activeR);
                     showContents($content, $contentR, $contentP);
 
+                    //Binding on click on the new chosen site
                     $leftDivPs.each(function () {
                         $(this).on('click', function () {
                             toggleClassesOnPandR($activeP, $activeR);
