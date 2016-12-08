@@ -274,3 +274,7 @@ img {
 .content p {
     font-size: 18px;
 }
+
+.col-left-side p:hover {
+    cursor: pointer;
+}
