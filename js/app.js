@@ -1,12 +1,38 @@
 $(document).ready(function () {
 
+    //Class toggling functions for active elements
+    function toggleClassesOnActive($active) {
+        $active.toggleClass('grey');
+        $active.toggleClass('blue');
+    }
+
+    function toggleClassesOnPandR($activeP, $activeR) {
+        $activeP.toggleClass('activeP');
+        $activeP.toggleClass('blue');
+        $activeR.toggleClass('black');
+        $activeR.toggleClass('selection');
+    }
+
+    //Functions for showing and hiding functions
+    function showContents($content, $contentR, $contentP) {
+        $content.show();
+        $contentR.show();
+        $contentP.show();
+    }
+
+    function hideContents($content, $contentR, $contentP) {
+        $content.hide();
+        $contentR.hide();
+        $contentP.hide();
+    }
+
+
     $('ul.mainSlider').each(function () {
         var $active, $content, $links = $(this).find('a');
 
         $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
         $active.parent().addClass('active');
-        $active.toggleClass('grey');
-        $active.toggleClass('blue');
+        toggleClassesOnActive($active);
 
         $content = $($active[0].hash);
 
@@ -31,11 +57,7 @@ $(document).ready(function () {
         var $contentP = $($dataContent);
         var $activeR = $psR.first();
 
-        $activeP.toggleClass('blue');
-        $activeP.toggleClass('activeP');
-
-        $activeR.toggleClass('black');
-        $activeR.toggleClass('selection');
+        toggleClassesOnPandR($activeP, $activeR);
 
         $infoContent.not($dataContent).each(function () {
             $(this).hide();
@@ -43,10 +65,7 @@ $(document).ready(function () {
 
         $leftDivPs.each(function () {
             $(this).on('click', function () {
-                $activeP.toggleClass('activeP');
-                $activeP.toggleClass('blue');
-                $activeR.toggleClass('black');
-                $activeR.toggleClass('selection');
+                toggleClassesOnPandR($activeP, $activeR);
                 $contentP.hide();
 
                 $activeP = $(this);
@@ -54,82 +73,18 @@ $(document).ready(function () {
                 $dataContent = '#' + $activeP.data('content');
                 $contentP = $($dataContent);
 
-                $activeP.toggleClass('activeP');
-                $activeP.toggleClass('blue');
-                $activeR.toggleClass('black');
-                $activeR.toggleClass('selection');
+                toggleClassesOnPandR($activeP, $activeR);
                 $contentP.show();
             });
-        });
-
-        $(window).unbind().on("keydown", function (e) {
-
-            if ($activeR.children().is('a, a *')) {
-                if (e.keyCode == 13) {
-                    if ($activeR.index() == 1) {
-                        window.open("https://linkedin.com/in/dawid-sawczuk");
-                    } else {
-                        window.open("https://github.com/dawidsawczuk");
-                    }
-                }
-            }
-
-            if ($activeP.index() !== ($leftDivPs.length - 1)) {
-                if (e.keyCode == 40) { //down
-                    $activeP.toggleClass('activeP');
-                    $activeP.toggleClass('blue');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
-                    $contentP.hide();
-
-                    $activeP = $activeP.next();
-                    $activeR = $psR.eq($activeP.index());
-                    $dataContent = '#' + $activeP.data('content');
-                    $contentP = $($dataContent);
-
-                    $activeP.toggleClass('activeP');
-                    $activeP.toggleClass('blue');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
-                    $contentP.show();
-                }
-            }
-
-            if ($activeP.index() !== 0) {
-                if (e.keyCode == 38) { //up
-                    $activeP.toggleClass('activeP');
-                    $activeP.toggleClass('blue');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
-                    $contentP.hide();
-
-                    $activeP = $activeP.prev();
-                    $activeR = $psR.eq($activeP.index());
-                    $dataContent = '#' + $activeP.data('content');
-                    $contentP = $($dataContent);
-
-                    $activeP.toggleClass('activeP');
-                    $activeP.toggleClass('blue');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
-                    $contentP.show();
-                }
-            }
         });
 
         // Bind the click event handler
         $(this).on('click', 'a', function (e) {
             // Make the old tab inactive.
             $active.parent().removeClass('active');
-            $active.toggleClass('grey');
-            $active.toggleClass('blue');
-            $activeP.toggleClass('blue');
-            $activeP.toggleClass('activeP');
-            $activeR.toggleClass('black');
-            $activeR.toggleClass('selection');
-            $content.hide();
-            $contentR.hide();
-            $contentP.hide();
+            toggleClassesOnActive($active);
+            toggleClassesOnPandR($activeP, $activeR);
+            hideContents($content, $contentR, $contentP);
 
             // Update the variables with the new link and content
             $active = $(this);
@@ -146,22 +101,13 @@ $(document).ready(function () {
 
             // Make the tab active.
             $active.parent().addClass('active');
-            $active.toggleClass('grey');
-            $active.toggleClass('blue');
-            $activeP.toggleClass('blue');
-            $activeP.toggleClass('activeP');
-            $activeR.toggleClass('black');
-            $activeR.toggleClass('selection');
-            $content.show();
-            $contentR.show();
-            $contentP.show();
+            toggleClassesOnActive($active);
+            toggleClassesOnPandR($activeP, $activeR);
+            showContents($content, $contentR, $contentP);
 
             $leftDivPs.each(function () {
                 $(this).on('click', function () {
-                    $activeP.toggleClass('activeP');
-                    $activeP.toggleClass('blue');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
+                    toggleClassesOnPandR($activeP, $activeR);
                     $contentP.hide();
 
                     $activeP = $(this);
@@ -169,16 +115,56 @@ $(document).ready(function () {
                     $dataContent = '#' + $activeP.data('content');
                     $contentP = $($dataContent);
 
-                    $activeP.toggleClass('activeP');
-                    $activeP.toggleClass('blue');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
+                    toggleClassesOnPandR($activeP, $activeR);
                     $contentP.show();
                 });
             });
 
             // Prevent the anchor's default click action
             e.preventDefault();
+        });
+
+        $(window).unbind().on("keydown", function (e) {
+
+            if ($activeR.children().is('a, a *')) {
+                if (e.keyCode == 13) {
+                    if ($activeR.index() == 1) {
+                        window.open("https://linkedin.com/in/dawid-sawczuk");
+                    } else {
+                        window.open("https://github.com/dawidsawczuk");
+                    }
+                }
+            }
+
+            if ($activeP.index() !== ($leftDivPs.length - 1)) {
+                if (e.keyCode == 40) { //down
+                    toggleClassesOnPandR($activeP, $activeR);
+                    $contentP.hide();
+
+                    $activeP = $activeP.next();
+                    $activeR = $psR.eq($activeP.index());
+                    $dataContent = '#' + $activeP.data('content');
+                    $contentP = $($dataContent);
+
+                    toggleClassesOnPandR($activeP, $activeR);
+                    $contentP.show();
+                }
+            }
+
+            if ($activeP.index() !== 0) {
+                if (e.keyCode == 38) { //up
+                    toggleClassesOnPandR($activeP, $activeR);
+                    $contentP.hide();
+
+                    $activeP = $activeP.prev();
+                    $activeR = $psR.eq($activeP.index());
+                    $dataContent = '#' + $activeP.data('content');
+                    $contentP = $($dataContent);
+
+                    toggleClassesOnPandR($activeP, $activeR);
+                    $contentP.show();
+                }
+            }
         });
 
         $(window).keydown(function (e) {
@@ -188,16 +174,9 @@ $(document).ready(function () {
                     var $nextDataName = '#' + $next.data('name');
 
                     $active.parent().removeClass('active');
-                    $active.toggleClass('grey');
-                    $active.toggleClass('blue');
-                    $activeP.toggleClass('blue');
-                    $activeP.toggleClass('activeP');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
-
-                    $content.hide();
-                    $contentR.hide();
-                    $contentP.hide();
+                    toggleClassesOnActive($active);
+                    toggleClassesOnPandR($activeP, $activeR);
+                    hideContents($content, $contentR, $contentP);
 
                     $active = $active.parent().next().find('a');
                     $leftDivPs = $($leftDivId).next().find('p');
@@ -212,22 +191,13 @@ $(document).ready(function () {
                     $activeR = $psR.first();
 
                     $active.parent().addClass('active');
-                    $active.toggleClass('grey');
-                    $active.toggleClass('blue');
-                    $activeP.toggleClass('blue');
-                    $activeP.toggleClass('activeP');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
-                    $content.show();
-                    $contentR.show();
-                    $contentP.show();
+                    toggleClassesOnActive($active);
+                    toggleClassesOnPandR($activeP, $activeR);
+                    showContents($content, $contentR, $contentP);
 
                     $leftDivPs.each(function () {
                         $(this).on('click', function () {
-                            $activeP.toggleClass('activeP');
-                            $activeP.toggleClass('blue');
-                            $activeR.toggleClass('black');
-                            $activeR.toggleClass('selection');
+                            toggleClassesOnPandR($activeP, $activeR);
                             $contentP.hide();
 
                             $activeP = $(this);
@@ -235,10 +205,7 @@ $(document).ready(function () {
                             $dataContent = '#' + $activeP.data('content');
                             $contentP = $($dataContent);
 
-                            $activeP.toggleClass('activeP');
-                            $activeP.toggleClass('blue');
-                            $activeR.toggleClass('black');
-                            $activeR.toggleClass('selection');
+                            toggleClassesOnPandR($activeP, $activeR);
                             $contentP.show();
                         });
                     });
@@ -252,15 +219,9 @@ $(document).ready(function () {
                     var $prevDataName = '#' + $prev.data('name');
 
                     $active.parent().removeClass('active');
-                    $active.toggleClass('grey');
-                    $active.toggleClass('blue');
-                    $activeP.toggleClass('blue');
-                    $activeP.toggleClass('activeP');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
-                    $content.hide();
-                    $contentR.hide();
-                    $contentP.hide();
+                    toggleClassesOnActive($active);
+                    toggleClassesOnPandR($activeP, $activeR);
+                    hideContents($content, $contentR, $contentP);
 
                     $active = $active.parent().prev().find('a');
                     $leftDivPs = $($leftDivId).prev().find('p');
@@ -275,22 +236,13 @@ $(document).ready(function () {
                     $activeR = $psR.first();
 
                     $active.parent().addClass('active');
-                    $active.toggleClass('grey');
-                    $active.toggleClass('blue');
-                    $activeP.toggleClass('blue');
-                    $activeP.toggleClass('activeP');
-                    $activeR.toggleClass('black');
-                    $activeR.toggleClass('selection');
-                    $content.show();
-                    $contentR.show();
-                    $contentP.show();
+                    toggleClassesOnActive($active);
+                    toggleClassesOnPandR($activeP, $activeR);
+                    showContents($content, $contentR, $contentP);
 
                     $leftDivPs.each(function () {
                         $(this).on('click', function () {
-                            $activeP.toggleClass('activeP');
-                            $activeP.toggleClass('blue');
-                            $activeR.toggleClass('black');
-                            $activeR.toggleClass('selection');
+                            toggleClassesOnPandR($activeP, $activeR);
                             $contentP.hide();
 
                             $activeP = $(this);
@@ -298,20 +250,19 @@ $(document).ready(function () {
                             $dataContent = '#' + $activeP.data('content');
                             $contentP = $($dataContent);
 
-                            $activeP.toggleClass('activeP');
-                            $activeP.toggleClass('blue');
-                            $activeR.toggleClass('black');
-                            $activeR.toggleClass('selection');
+                            toggleClassesOnPandR($activeP, $activeR);
                             $contentP.show();
                         });
                     });
                 }
             }
 
+            //Binding GitHub on Esc
             if (e.keyCode == 27) {
                 window.location.replace("https://github.com/dawidsawczuk");
             }
 
+            //Binding alert on F2
             if (e.keyCode == 113) {
                     alert('Enter is usable only with [Link].\n' +
                     'On the desktop you can use both arrows and mouse.\n' +
