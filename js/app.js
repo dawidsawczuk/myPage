@@ -273,7 +273,7 @@ $(document).ready(function () {
 
             //Binding alert on F2
             if (e.keyCode == 113) {
-                    alert('Enter is usable only with [Link].\n' +
+                alert('Enter is usable only with [Link].\n' +
                     'On the desktop you can use both arrows and mouse.\n' +
                     'Looks created by Alicja Cmiel.\n' +
                     'Functionality by Dawid Sawczuk.\n' +

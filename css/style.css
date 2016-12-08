@@ -166,15 +166,18 @@ img {
         display: block;
         padding-top: 50%;
     }
+
     img {
         display: block;
         width: 150px;
         height: 150px;
         color: white;
     }
+
     .col-left {
         display: none;
     }
+
     .col-right {
         display: none;
     }
@@ -184,36 +187,44 @@ img {
     .top-text {
         font-size: 18px;
     }
+
     .col-left-side {
         margin: 3%;
         width: 46%;
     }
+
     .col-right-side {
         margin: 3%;
         width: 60%;
     }
+
     .col-left p {
         font-size: 16px;
     }
+
     .footer {
         display: flex;
         position: relative;
         height: 50px;
     }
+
     span {
         color: black;
         font-size: 15px;
         font-weight: normal;
     }
+
     .icon {
         color: white;
         font-size: 18px;
     }
+
     .arrows {
         color: white;
         font-size: 18px;
         font-weight: bold;
     }
+
     .copyright {
         margin: 0;
         font-size: 14px;
