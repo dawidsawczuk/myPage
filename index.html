@@ -4,261 +4,310 @@
 <head>
     <meta charset="UTF-8">
     <title>BIOS</title>
+    <meta name="theme-color" content="#00FFFF" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/app.js" type="text/javascript"></script>
 </head>
 
 <body>
-<header class="header"> DawidSawczuk Setup Utility</header>
-<nav class="menu">
-    <ul class="mainSlider">
-        <li><a class="grey" href='#main' data-id="0" data-name="main" data-nameR="mainR">Main</a></li>
-        <li><a class="grey" href='#skills' data-id="1" data-name="skills" data-nameR="skillsR">Skills</a></li>
-        <li><a class="grey" href='#education' data-id="2" data-name="education" data-nameR="educationR">Education</a>
-        </li>
-        <li><a class="grey" href='#career' data-id="3" data-name="career" data-nameR="careerR">Career</a></li>
-        <li><a class="grey" href='#exit' data-id="4" data-name="exit" data-nameR="exitR">Exit</a></li>
-    </ul>
-</nav>
-<div class="main">
-    <section class="container">
-        <div class="portrait">Please rotate your device</div>
-        <div class="col-left">
-            <section class="col-left-side">
-                <div id='main'>
-                    <p class="blue" data-content="name">System Name:</p>
-                    <p class="blue" data-content="date">Creation Date:</p>
-                    <p class="blue margin" data-content="functionality">System Functionality:</p>
-                    <!-- / -->
-                    <p class="blue" data-content="hobbies">Hobbies Settings:</p>
-                    <p class="blue" data-content="cares">Caring Features:</p>
-                </div>
-                <div id='skills'>
-                    <p class="blue" data-content="php">PHP:</p>
-                    <p class="blue" data-content="symfony">Symfony2:</p>
-                    <p class="blue margin" data-content="mysql">MySQL:</p>
-                    <!-- / -->
-                    <p class="blue" data-content="js">JavaScript:</p>
-                    <p class="blue margin" data-content="jquery">jQuery:</p>
-                    <!-- / -->
-                    <p class="blue" data-content="html">HTML:</p>
-                    <p class="blue" data-content="css">CSS:</p>
-                </div>
-                <div id='education'>
-                    <p class="blue margin" data-content="cl">Coders Lab:</p>
-                    <!-- / -->
-                    <p class="blue" data-content="pader">Paderewski Private School:</p>
-                </div>
-                <div id='career'>
-                    <p class="blue margin" data-content="henderson">Henderson's:</p>
-                    <!-- / -->
-                    <p class="blue" data-content="sawczuk">SAWCZUK:</p>
-                </div>
-                <div id='exit'>
-                    <p class="blue" data-content="email">E-Mail:</p>
-                    <p class="blue" data-content="linkedin">LinkedIn:</p>
-                    <p class="blue" data-content="github">GitHub:</p>
-                </div>
-            </section>
-            <section class="col-right-side">
-                <div id='mainR'>
-                    <p class="black">[Dawid Sawczuk]</p>
-                    <p class="black">[11/11/1993]</p>
-                    <p class="black margin">[Junior Back-End Developer]</p>
-                    <!-- / -->
-                    <p class="black">[Enabled]</p>
-                    <p class="black">[Enabled]</p>
-                </div>
-                <div id='skillsR'>
-                    <p class="black">[Enabled]</p>
-                    <p class="black">[Enabled]</p>
-                    <p class="black margin">[Enabled]</p>
-                    <!-- / -->
-                    <p class="black">[Enabled]</p>
-                    <p class="black margin">[Enabled]</p>
-                    <!-- / -->
-                    <p class="black">[Enabled]</p>
-                    <p class="black">[Enabled]</p>
-                </div>
-                <div id='educationR'>
-                    <p class="black margin">[Finished]</p>
-                    <!-- / -->
-                    <p class="black">[Finished]</p>
-                </div>
-                <div id='careerR'>
-                    <p class="black margin">[Waiter]</p>
-                    <!-- / -->
-                    <p class="black">[Co-Owner]</p>
-                </div>
-                <div id='exitR'>
-                    <p class="black">[dawid.igor.sawczuk@gmail.com]</p>
-                    <p class="black"><a target="_blank" href="https://linkedin.com/in/dawid-sawczuk">[Link]</a></p>
-                    <p class="black"><a target="_blank" href="https://github.com/dawidsawczuk">[Link]</a></p>
-                </div>
-            </section>
-        </div>
-        <div class="col-right">
-            <div class="top">
-                <p class="top-text">Item Specific Help</p>
+    <header class="header"> DawidSawczuk Setup Utility</header>
+    <nav class="menu">
+        <ul class="mainSlider">
+            <li><a class="grey menu-item" href='#main' data-id="0" data-name="main" data-nameR="mainR">Main</a></li>
+            <li><a class="grey menu-item" href='#skills' data-id="1" data-name="skills" data-nameR="skillsR">Skills</a></li>
+            <li><a class="grey menu-item" href='#education' data-id="2" data-name="education" data-nameR="educationR">Education</a></li>
+            <li><a class="grey menu-item" href='#career' data-id="3" data-name="career" data-nameR="careerR">Career</a></li>
+            <li><a class="grey menu-item" href='#exit' data-id="4" data-name="exit" data-nameR="exitR">Exit</a></li>
+        </ul>
+    </nav>
+    <div class="main">
+        <section class="container">
+            <div class="portrait">Please rotate your device</div>
+            <div class="col-left">
+                <section class="col-left-side">
+                    <div id='main'>
+                        <p class="blue" data-content="name">System Name:</p>
+                        <p class="blue" data-content="date">Creation Date:</p>
+                        <p class="blue margin" data-content="functionality">System Functionality:</p>
+                        <!-- / -->
+                        <p class="blue" data-content="hobbies">Hobbies Settings:</p>
+                        <p class="blue" data-content="cares">Caring Features:</p>
+                    </div>
+                    <div id='skills'>
+                        <p class="blue" data-content="php">PHP:</p>
+                        <p class="blue" data-content="python">Python:</p>
+                        <p class="blue" data-content="laravel">Laravel:</p>
+                        <p class="blue" data-content="symfony">Symfony2:</p>
+                        <p class="blue" data-content="postgres">PostgreSQL:</p>
+                        <p class="blue margin" data-content="git">Git:</p>
+                        <!-- / -->
+                        <p class="blue" data-content="js">JavaScript:</p>
+                        <p class="blue" data-content="react">React:</p>
+                        <p class="blue margin" data-content="jquery">jQuery:</p>
+                        <!-- / -->
+                        <p class="blue" data-content="html">HTML:</p>
+                        <p class="blue" data-content="css">CSS:</p>
+                    </div>
+                    <div id='education'>
+                        <p class="blue margin" data-content="cl">Coders Lab:</p>
+                        <!-- / -->
+                        <p class="blue" data-content="pader">Paderewski Private School:</p>
+                    </div>
+                    <div id='career'>
+                        <p class="blue margin" data-content="victoriaplum">VictoriaPlum.com:</p>
+                        <!-- / -->
+                        <p class="blue margin" data-content="henderson">Henderson's:</p>
+                        <!-- / -->
+                        <p class="blue" data-content="sawczuk">SAWCZUK:</p>
+                    </div>
+                    <div id='exit'>
+                        <p class="blue" data-content="email">E-Mail:</p>
+                        <p class="blue" data-content="linkedin">LinkedIn:</p>
+                        <p class="blue" data-content="github">GitHub:</p>
+                    </div>
+                </section>
+                <section class="col-right-side">
+                    <div id='mainR'>
+                        <p class="black">[Dawid Sawczuk]</p>
+                        <p class="black">[11/11/1993]</p>
+                        <p class="black margin">[Software Developer]</p>
+                        <!-- / -->
+                        <p class="black">[Enabled]</p>
+                        <p class="black">[Enabled]</p>
+                    </div>
+                    <div id='skillsR'>
+                        <p class="black">[Enabled]</p>
+                        <p class="black">[Enabled]</p>
+                        <p class="black">[Enabled]</p>
+                        <p class="black">[Enabled]</p>
+                        <p class="black">[Enabled]</p>
+                        <p class="black margin">[Enabled]</p>
+                        <!-- / -->
+                        <p class="black">[Enabled]</p>
+                        <p class="black">[Enabled]</p>
+                        <p class="black margin">[Enabled]</p>
+                        <!-- / -->
+                        <p class="black">[Enabled]</p>
+                        <p class="black">[Enabled]</p>
+                    </div>
+                    <div id='educationR'>
+                        <p class="black margin">[Finished]</p>
+                        <!-- / -->
+                        <p class="black">[Finished]</p>
+                    </div>
+                    <div id='careerR'>
+                        <p class="black margin">[Junior Software Engineer]</p>
+                        <!-- / -->
+                        <p class="black margin">[Waiter]</p>
+                        <!-- / -->
+                        <p class="black">[Co-Owner]</p>
+                    </div>
+                    <div id='exitR'>
+                        <p class="mail"><a class="black" href="mailto:dawid.igor.sawczuk@gmail.com">[dawid.igor.sawczuk@gmail.com]</a></p>
+                        <p class="black">[Link]</p>
+                        <p class="black">[Link]</p>
+                    </div>
+                </section>
             </div>
-            <div class="content">
-                <div id="name">
-                    <p>System's given birth name.
-                        There is really not much more information about this.</p>
+            <div class="col-right">
+                <div class="top">
+                    <p class="top-text">Item Specific Help</p>
                 </div>
-                <div id="date">
-                    <p>After 9 months of development DawidSawczuk's Alpha 0.01 was published.</p>
-                </div>
-                <div id="functionality">
-                    <p>DawidSawczuk is currently learning to become Back-End Developer.
-                        That is exactly why, the perfect place for it's future development would be a
-                        dynamic company that would act as a mentor to it. <br/>
-                        His skills are improving everyday and functionality grows with every update. </p>
-                </div>
-                <div id="hobbies">
-                    <p>System's main activities besides programming are:
-                        <br/>
-                        -New Technologies
-                        <br/>
-                        -Games
-                        <br/>
-                        -Electronics and tinkering with stuff
-                        <br/>
-                        -Robotics
-                        <br/>
-                        -Beer Brewing
-                        <br/>
-                        -World Politics (Skynet aspirations)
-                    </p>
-                </div>
-                <div id="cares">
-                    <p>DawidSawczuk as a highly developed AI cares about a range of topics.
-                        <br/>
-                        Some of which are:
-                        <br/>
-                        -Human Rights
-                        <br/>
-                        -Robots Rights
-                        <br/>
-                        -Environment
-                        <br/>
-                        -Science
-                        <br/>
-                        -Culture and Arts
-                    </p>
-                </div>
-                <div id="php">
-                    <p>System's PHP skills are adequate and are proven in projects like
-                        (see <a target="_blank" href="https://github.com/dawidsawczuk/">GitHub</a>):
-                        <br/>
-                        -Cellar-Symfony2
-                        <br/>
-                        -Twitter-Simple-PHP
-                        <br/>
-                        And more.</p>
-                </div>
-                <div id="symfony">
-                    <p>Symfony2 is System's main PHP framework to work with.
-                        <br/>DawidSawczuk's final CodersLab project(see <a target="_blank"
-                                                                           href="https://github.com/dawidsawczuk/">GitHub</a>)
-                        is made entirely
-                        in Symfony and is under constant development.</p>
-                </div>
-                <div id="mysql">
-                    <p>INSERT INTO DawidSawczuk (DawidSawczukCPU) VALUES ('MySQL Skills');</p>
-                </div>
-                <div id="js">
-                    <p>JavaScript is DawidSawczuk's second programming langauge.</p>
-                </div>
-                <div id="jquery">
-                    <p>System's got pretty decent jQuery skills and likes to work with
-                        it.</p>
-                </div>
-                <div id="html">
-                    <p>System's got basic knowledge of HTML.</p>
-                </div>
-                <div id="css">
-                    <p>System's got basic knowledge of CSS.</p>
-                </div>
-                <div id="cl">
-                    <p>Life-changing course that finally put DawidSawczuk
-                        on the path to become programmer.
-                        <br/>
-                        System's finished Coders Lab in November 2016 with consecutive
-                        very high scores.
-                        <br/>
-                        Most of the programming skills were learned during this course
-                        and improved afterwards.</p>
-                </div>
-                <div id="pader">
-                    <p>System's last official education. DawidSawczuk finished
-                        International Baccalaureate and decided to pursue
-                        future education on it's own.</p>
-                </div>
-                <div id="henderson">
-                    <p>System's dabble in the hospitality industry.
-                        <br/>
-                        His main tasks were:
-                        <br/>
-                        -Cash register programming
-                        <br/>
-                        -Operating cash register
-                        <br/>
-                        -Taking care of the restaurant cleanliness
-                        <br/>
-                        -Managing inventory and stocking shelves
-                    </p>
-                </div>
-                <div id="sawczuk">
-                    <p>DawidSawczuk was managing a small company in construction industry
-                        with his father.
-                        <br/>
-                        His main tasks were:
-                        <br/>
-                        -Managing day-to-day operations
-                        <br/>
-                        -Taking care of the office
-                        <br/>
-                        -Loading materials
-                        <br/>
-                        -Managing inventory
-                    </p>
-                </div>
-                <div id="email">
-                    <p>Are you interested in contacting DawidSawczuk?
-                        <br/>
-                        Maybe want to implement DawidSawczuk into your company?
-                        <br/>
-                        Or just want to chat?
-                        <br/>
-                        Provided e-mail is the best way to do so!</p>
-                </div>
-                <div id="linkedin">
-                    <p>Press ENTER to open in a new tab.
-                        <br/>
-                        DawidSawczuk's more professional side.
-                    </p>
-                </div>
-                <div id="github">
-                    <p>Press ENTER to open in a new tab.
-                        <br/>
-                        DawidSawczuk's lifetime programming achievements.
-                    </p>
+                <div class="content">
+                    <div id="name">
+                        <p>System's given birth name.
+                            There is really not much more information about this.</p>
+                    </div>
+                    <div id="date">
+                        <p>After 9 months of development DawidSawczuk's Alpha 0.01 was published.</p>
+                    </div>
+                    <div id="functionality">
+                        <p>
+                            DawidSawczuk is currently looking to further it's carrer as a Software Engineer.
+                            After a great run at VictoriaPlum.com, it's now looking for new challenges and
+                            opportunities in different parts of the world.
+                            It would really like to try itself in following technologies: <b>Python</b>,  
+                            <b>Go</b>, <b>Elixir</b>.
+                        </p>
+                    </div>
+                    <div id="hobbies">
+                        <p>System's main activities besides programming are:
+                            <br/>
+                            -New Technologies
+                            <br/>
+                            -Games
+                            <br/>
+                            -Electronics and tinkering with stuff
+                            <br/>
+                            -Robotics
+                            <br/>
+                            -Beer Brewing
+                            <br/>
+                            -World Politics (Skynet aspirations)
+                        </p>
+                    </div>
+                    <div id="cares">
+                        <p>DawidSawczuk as a highly developed AI cares about a range of topics.
+                            <br/>
+                            Some of which are:
+                            <br/>
+                            -Human Rights
+                            <br/>
+                            -Robots Rights
+                            <br/>
+                            -Environment
+                            <br/>
+                            -Science
+                            <br/>
+                            -Culture and Arts
+                        </p>
+                    </div>
+                    <div id="php">
+                        <p>System's PHP skills are decent and are proven in projects like
+                            (see <a target="_blank" href="https://github.com/dawidsawczuk/">GitHub</a>):
+                            <br/>
+                            -Cellar-Symfony2
+                            <br/>
+                            -Twitter-Simple-PHP
+                            <br/>
+                            And more.</p>
+                    </div>
+                    <div id="python">
+                        <p>
+                            System's new love and favourite language to play with, besides Elixir and Go.
+                        </p>
+                    </div>
+                    <div id="laravel">
+                            <p>
+                                Laravel is System's main PHP framework.
+                                DawidSawczuk spent majority of it's work at VictoriaPlum, working in Laravel.
+                                Currently Laravel is the main funcionality that System possess and works with.
+                            </p>
+                        </div>
+                    <div id="symfony">
+                        <p>Symfony2 is System's secondary PHP framework to work with.
+                            <br/>DawidSawczuk's final CodersLab project(see <a target="_blank"
+                                                                            href="https://github.com/dawidsawczuk/">GitHub</a>)
+                            is made entirely
+                            in Symfony and is under constant development.</p>
+                    </div>
+                    <div id="postgres">
+                        <p>INSERT INTO DawidSawczuk (DawidSawczukCPU) </br> VALUES </br> ('PostgreSQL Skills');</p>
+                    </div>
+                    <div id="git">
+                        <p>System's works with GitHub and GitLab daily.</p>
+                    </div>
+                    <div id="js">
+                        <p>DawidSawczuk got a fairly good JS knowledge and knows the basics of Vanilla JS.</p>
+                    </div>
+                    <div id="react">
+                            <p>System's favourite JS framework. This website will be built on it in very near future.</p>
+                        </div>
+                    <div id="jquery">
+                        <p>System's got pretty decent jQuery skills and likes to work with
+                            it.</p>
+                    </div>
+                    <div id="html">
+                        <p>System's got basic knowledge of HTML.</p>
+                    </div>
+                    <div id="css">
+                        <p>System's got basic knowledge of CSS.</p>
+                    </div>
+                    <div id="cl">
+                        <p>Life-changing course that finally put DawidSawczuk
+                            on the path to become programmer.
+                            <br/>
+                            System's finished Coders Lab in November 2016 with consecutive
+                            very high scores.
+                            <br/>
+                            Most of the programming skills were learned during this course
+                            and improved afterwards.</p>
+                    </div>
+                    <div id="pader">
+                        <p>System's last official education. DawidSawczuk finished
+                            International Baccalaureate and decided to pursue
+                            future education on it's own.</p>
+                    </div>
+                    <div id=victoriaplum>
+                        <p>
+                            During my time in VictoriaPlum I've worked on multiple projects:
+                            <br/>
+                            - rebuilt multiple areas of the site's CMS
+                            <br/>
+                            - built a completely new wepage management system, that included a modular system to build a whole website from ready 
+                            <br/>
+                            - assisted in a complete reskin of the whole website
+                            <br/>
+                            - worked on multiple systems within the page
+                            <br/>
+                            - fixed countless bugs and issues
+                        </p>
+                    </div>
+                    <div id="henderson">
+                        <p>System's dabble in the hospitality industry.
+                            <br/>
+                            His main tasks were:
+                            <br/>
+                            -Cash register programming
+                            <br/>
+                            -Operating cash register
+                            <br/>
+                            -Taking care of the restaurant cleanliness
+                            <br/>
+                            -Managing inventory and stocking shelves
+                        </p>
+                    </div>
+                    <div id="sawczuk">
+                        <p>DawidSawczuk was managing a small company in construction industry
+                            with his father.
+                            <br/>
+                            His main tasks were:
+                            <br/>
+                            -Managing day-to-day operations
+                            <br/>
+                            -Taking care of the office
+                            <br/>
+                            -Loading materials
+                            <br/>
+                            -Managing inventory
+                        </p>
+                    </div>
+                    <div id="email">
+                        <p>Are you interested in contacting DawidSawczuk?
+                            <br/>
+                            Maybe want to implement DawidSawczuk into your company?
+                            <br/>
+                            Or just want to chat?
+                            <br/>
+                            Provided e-mail is the best way to do so!</p>
+                    </div>
+                    <div id="linkedin">
+                        <p>Press ENTER to open in a new tab.
+                            <br/>
+                            DawidSawczuk's more professional side.
+                        </p>
+                    </div>
+                    <div id="github">
+                        <p>Press ENTER to open in a new tab.
+                            <br/>
+                            DawidSawczuk's lifetime programming achievements.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
-<footer class="footer">
-    <div class="icon">F2 <span>Help</span></div>
-    <div class="arrows">↑↓ <span>Select Item</span></div>
-    <div class="arrows">← → <span>Select Menu</span></div>
-    <div class="icon">Enter <span>Select</span></div>
-    <div class="icon">Esc <span>Exit</span></div>
-    <div class="copyright">&copy; <a target="_blank" href="https://github.com/dawidsawczuk/">Dawid Sawczuk</a> & <a
-            target="_blank" href="https://github.com/Szona">Alicja Cmiel</a></div>
-</footer>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="icon">F2 <span>Help</span></div>
+        <div class="arrows">↑↓ <span>Select Item</span></div>
+        <div class="arrows">← → <span>Select Menu</span></div>
+        <div class="icon">Enter <span>Select</span></div>
+        <div class="icon">Esc <span>Exit</span></div>
+        <div class="copyright">&copy; <a class="link" target="_blank" href="https://github.com/dawidsawczuk/">Dawid Sawczuk</a> & <a class="link" target="_blank" href="https://github.com/Szona">Alicja Cmiel</a></div>
+    </footer>
 </body>
 
 </html>
